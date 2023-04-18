@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from "passport";
 import gitHubStrategy from '../middlewares/passport/passport-github2.js';
+import dotenv from 'dotenv';
 
 
 const authGitHubRouter = express.Router();
@@ -20,7 +21,7 @@ authGitHubRouter.get("/login/success", (req,res) => {
     
 })
 
-authGitHubRouter.get("/login/failure", (req,res) => {
+authGitHubRouter.get(`${process.env.SERVER_URL}/login/failure`, (req,res) => {
         res.status(401).json({
             success: false,
             message: "failure",
@@ -30,11 +31,11 @@ authGitHubRouter.get("/login/failure", (req,res) => {
 });
 
 
- authGitHubRouter.get("/login", passport.authenticate('github', {
+ authGitHubRouter.get(`/login`, passport.authenticate('github', {
     scope: ['profile']
 }));
 
-authGitHubRouter.get("/redirect", passport.authenticate('github',{
+authGitHubRouter.get(`/redirect`, passport.authenticate('github',{
     successRedirect: "http://localhost:3000",
     failureRedirct: "http://localhost:3000/login"
 }), (req,res) => {

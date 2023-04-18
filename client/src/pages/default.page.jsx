@@ -72,7 +72,10 @@ function DefaultPage() {
     function getDefaultResponses() {
       fetch(`${settings.serverUrl}/api/responses/default`)
           .then((res) => res.json())
-          .then((data) => setResponses(data))
+          .then((data) => {
+            console.log(data)
+            setResponses(data)
+          })
           .catch((err) => {
             console.error(err);
             setResponses("");

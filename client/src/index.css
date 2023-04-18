@@ -17,7 +17,6 @@ html {
 body {
   margin: 0;
   padding:0%;
-  background-image: linear-gradient(aliceblue, blue);
   
   font-family: 'Roboto Mono', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -129,6 +128,9 @@ animation: shake 1s;
 }
 
 .App {
+  
+  background: linear-gradient(240deg,rgb(240,248,255), rgb(0,0,255)); 
+ 
   min-height: 100vh;
 }
 
